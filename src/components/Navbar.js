@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { part1, part2, part3 } from "../utils/NavConstants";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [more, setMore] = useState(false);
   const [menu, setMenu] = useState(false);
+  const navigate = useNavigate();
   const color = {
     fill: menu ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)",
   };
   return (
     <nav className={`${menu ? "bg-blue-700 text-white" : "bg-white"}`}>
       <div className="flex justify-between">
-        <div className="xl:py-5 py-3 xl:px-10 px-6 flex">
-          <div className="cursor-pointer">
+        <div className="lg:py-5 py-3 xl:px-10 px-6 flex">
+          <div className="cursor-pointer" onClick={() => navigate("/")}>
             <svg
               style={color}
               xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +24,10 @@ const Navbar = () => {
               <path d="M0 0h3v21H0zM6 0h3v21H6zM12 0h3v21h-3zM18 0h3v21h-3zM24 18h21v3H24zM24 12h21v3H24zM24 6h21v3H24zM24 0h21v3H24z"></path>
             </svg>
           </div>
-          <div className="lg:hidden flex px-4" onClick={() => setMenu(!menu)}>
+          <div
+            className="lg:hidden flex px-4 cursor-pointer"
+            onClick={() => setMenu(!menu)}
+          >
             <div>
               <p className="text-lg font-semibold px-2">Menu</p>
             </div>
@@ -45,13 +50,18 @@ const Navbar = () => {
           <div className="xl:px-6 lg:px-2 lg:block hidden">
             <ul className="flex ">
               {part1.map((val, index) => (
-                <li className="xl:px-4 lg:px-2" key={index}>
-                  <p className="text-lg font-semibold cursor-pointer">{val}</p>
+                <li className="xl:px-4 lg:px-3" key={index}>
+                  <p
+                    className="xl:text-lg text-sm font-semibold cursor-pointer"
+                    onClick={() => navigate(val.nav)}
+                  >
+                    {val.name}
+                  </p>
                 </li>
               ))}
-              <li className="xl:px-4 lg:px-2 ">
+              <li className="xl:px-4 lg:px-3 ">
                 <p
-                  className="text-lg font-semibold cursor-pointer"
+                  className="xl:text-lg text-sm font-semibold cursor-pointer"
                   onClick={() => setMore(!more)}
                 >
                   More{" "}
@@ -65,24 +75,28 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <div className="lg:flex xl:py-5 py-3 xl:px-10 px-6 hidden">
+        <div className="lg:flex lg:py-5 py-3 xl:px-10 px-6 hidden">
           <div className="px-3">
-            <p className="text-lg font-semibold text-blue-700 cursor-pointer">
+            <p className="xl:text-lg text-sm font-semibold text-blue-700 cursor-pointer">
               Try Live for free
             </p>
           </div>
           <div className="px-6 pt-1">
-            <p className="font-semibold cursor-pointer">Cart</p>
+            <p className="text-sm xl:text-base font-semibold cursor-pointer">
+              Cart
+            </p>
           </div>
           <div className="px-3 pt-1">
-            <p className="font-semibold cursor-pointer">Log in or register</p>
+            <p className="font-semibold text-sm xl:text-base cursor-pointer">
+              Log in or register
+            </p>
           </div>
         </div>
       </div>
       <div
         className={`xl:px-7 lg:px-3 py-4 ${
           more ? "lg:block" : "hidden"
-        } hidden`}
+        } hidden absolute z-10 bg-white`}
       >
         <div className="py-4">
           <p className="xl:text-2xl lg:text-xl px-3 font-semibold">
@@ -115,12 +129,17 @@ const Navbar = () => {
       <div
         className={`${
           menu ? "block" : "hidden"
-        } lg:hidden absolute overflow-x-hidden px-6  bg-blue-700 w-screen`}
+        } lg:hidden absolute overflow-x-hidden z-20 px-6 pb-3  bg-blue-700 w-screen`}
       >
         <ul className="flex flex-col ">
           {part1.map((val, index) => (
             <li className="py-2" key={index}>
-              <p className="text-lg font-semibold cursor-pointer">{val}</p>
+              <p
+                className="text-lg font-semibold cursor-pointer"
+                onClick={() => navigate(val.nav)}
+              >
+                {val.name}
+              </p>
             </li>
           ))}
           <li className="">
@@ -149,7 +168,7 @@ const Navbar = () => {
         </div>
         <div className="pb-4">
           <p className="text-xl font-semibold">More from Ableton:</p>
-          <div className=" bg-blue-700 overflow-x-scroll ">
+          <div className=" bg-blue-700 overflow-x-scroll no-scrollbar ">
             <ul className="flex py-2">
               {part3.map((val, index) => (
                 <li className="px-2" key={index}>
@@ -159,37 +178,6 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-        </div>
-      </div>
-      <div className="hidden">
-        <hr className="border-[1.5px]" />
-        <div className="px-6 py-6">
-          <ul className="flex">
-            <li className="xl:px-4 lg:px-2">
-              <p className="text-sm font-semibold">Live 12</p>
-            </li>
-            <li className="xl:px-4 lg:px-2">
-              <p className="text-sm font-semibold">All new features</p>
-            </li>
-            <li className="xl:px-4 lg:px-2">
-              <p className="text-sm font-semibold">What is Live?</p>
-            </li>
-            <li className="xl:px-4 lg:px-2">
-              <p className="text-sm font-semibold">Max for Live</p>
-            </li>
-            <li className="xl:px-4 lg:px-2">
-              <p className="text-sm font-semibold">Learn Live</p>
-            </li>
-            <li className="xl:px-4 lg:px-2">
-              <p className="text-sm font-semibold">Integrated hardware</p>
-            </li>
-            <li className="xl:px-4 lg:px-2">
-              <p className="text-sm font-semibold">Compare editions</p>
-            </li>
-            <li className="xl:px-4 lg:px-2">
-              <p className="text-sm font-semibold text-blue-700">Buy now</p>
-            </li>
-          </ul>
         </div>
       </div>
       <div className="hidden">

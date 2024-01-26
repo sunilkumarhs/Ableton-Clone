@@ -1,4 +1,33 @@
-export const part1 = ["Live", "Push", "Note", "Link", "Shop", "Packs", "Help"];
+export const part1 = [
+  {
+    name: "Live",
+    nav: "/live",
+  },
+  {
+    name: "Push",
+    nav: "/push",
+  },
+  {
+    name: "Note",
+    nav: "/note",
+  },
+  {
+    name: "Link",
+    nav: "/link",
+  },
+  {
+    name: "Shop",
+    nav: "/shop",
+  },
+  {
+    name: "Packs",
+    nav: "/packs",
+  },
+  {
+    name: "Help",
+    nav: "/help",
+  },
+];
 export const part2 = [
   "Blog",
   "Ableton for the Classroom",

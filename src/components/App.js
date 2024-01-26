@@ -1,15 +1,10 @@
-import Navbar from "./Navbar";
-import MainPage from "./mainSection/MainPage";
+import Body from "./Body";
 
 function App() {
   return (
-    <div className="">
-      <Navbar />
-      <div>
-        <MainPage />
-      </div>
+    <div>
+      <Body />
     </div>
   );
 }
-
 export default App;
