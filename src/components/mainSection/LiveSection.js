@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { part1, part2, part3 } from "../../utils/LiveConstants";
 import VideoPlayer from "./VideoPlayer";
+import MusicPlayer from "./MusicPlayer";
 
 const LiveSection = () => {
   const [toggle, setToggle] = useState(false);
   const [videoKey, setVideoKey] = useState();
   const color = { fill: "rgba(255,255,255,1)" };
+
   return (
     <>
       <div className="overflow-hidden font-[futura-pt]">
@@ -34,27 +36,31 @@ const LiveSection = () => {
           <div className="md:text-6xl text-3xl font-semibold xl:px-24 lg:px-20 md:px-16 px-10 text-white mt-[10%]">
             <div className="flex">
               <h1 className="pr-5">Find</h1>
-              <div className="flex">
-                <h1> your</h1>
-                <div className=" flex flex-col px-4 -mt-4 text-center overflow-y-scroll h-24">
-                  <span className="text-black bg-white rounded-full p-4 m-1">
-                    thing
-                  </span>{" "}
-                  <span className="text-black bg-white rounded-full p-4 m-1">
-                    way
-                  </span>
-                  <span className="text-black bg-white rounded-full p-4 m-1">
-                    rhythm
-                  </span>
-                  <span className="text-black bg-white rounded-full p-4 m-1">
-                    spark
+              <div className="flex flex-col overflow-y-scroll h-20 no-scrollbar">
+                <div className="flex">
+                  <div>
+                    <h1> your</h1>
+                  </div>
+                  <div className=" flex flex-col px-4 text-center overflow-y-scroll h-20 no-scrollbar">
+                    <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                      thing
+                    </span>{" "}
+                    <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                      way
+                    </span>
+                    <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                      rhythm
+                    </span>
+                    <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                      spark
+                    </span>
+                  </div>
+                </div>
+                <div className="pt-6">
+                  <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                    yourself
                   </span>
                 </div>
-              </div>
-              <div className="">
-                <span className="text-black bg-white rounded-full p-4 m-1">
-                  yourself
-                </span>
               </div>
             </div>
             <h1 className="py-3 font-">again and again</h1>
@@ -184,7 +190,7 @@ const LiveSection = () => {
                 ))}
               </div>
               <div className="sm:py-10 py-5 flex md:flex-row flex-col">
-                <div className="lg:px-24 mg:w-1/2 w-full">
+                <div className="lg:px-20 md:w-3/4 w-full">
                   <img
                     src="https://ableton-production.imgix.net/components/text-beside-media/web-mfl-midi-tools.png?"
                     alt="liveImage"
@@ -282,7 +288,7 @@ const LiveSection = () => {
             </div>
             <div className="xl:px-24 lg:px-20 md:px-16 px-10 ">
               <div className="sm:py-10 py-5 flex md:flex-row flex-col">
-                <div className="lg:px-24 mg:w-1/2 w-full">
+                <div className="lg:px-20 md:w-3/4 w-full">
                   <img
                     src="https://ableton-production.imgix.net/components/text-beside-media/web-midi-editing.png?"
                     alt="liveImage"
@@ -292,7 +298,7 @@ const LiveSection = () => {
                   <h1 className="text-2xl font-semibold">
                     Edit MIDI more easily
                   </h1>
-                  <p className="text-base md:pt-5 pt-3 lg:pr-8">
+                  <p className="text-base md:pt-5 pt-3 lg:pr-4">
                     Use keyboard and mouse operations to edit MIDI in new ways.
                     Split a note in two, or chop it into several parts. Select a
                     set of notes and join them together, or make them fill a
@@ -302,7 +308,7 @@ const LiveSection = () => {
                 </div>
               </div>
               <div className="sm:py-10 py-5 flex md:flex-row flex-col">
-                <div className="lg:px-24 mg:w-1/2 w-full">
+                <div className="lg:px-20 md:w-3/4 w-full">
                   <img
                     src="https://ableton-production.imgix.net/components/text-beside-media/web-mfl-modulation.png?"
                     alt="liveImage"
@@ -312,7 +318,7 @@ const LiveSection = () => {
                   <h1 className="text-2xl font-semibold">
                     Modulate more flexible
                   </h1>
-                  <p className="text-base md:py-5 py-3 lg:pr-8">
+                  <p className="text-base md:py-5 py-3 lg:pr-4">
                     Stay in control of a parameter, even after it{"’"}s been
                     mapped to a modulation source; Max for Live devices like
                     LFO, Shaper and Envelope Follower now let you freely adjust
@@ -323,7 +329,52 @@ const LiveSection = () => {
             </div>
           </div>
           <div>
-            <p>ksmkmw</p>
+            <h1 className="lg:text-6xl text-4xl px-20 py-20">
+              Surprise yourself with the sounds you create
+            </h1>
+            <div className="w-full lg:px-20">
+              <img
+                src="https://ableton-production.imgix.net/components/text-beside-media/001882720001-web-1610.jpg?"
+                alt="liveImage"
+              />
+            </div>
+          </div>
+          <div className="px-20 py-24">
+            <h1 className="text-4xl">Lose yourself in Meld</h1>
+            <p className="w-1/2 pt-4 pb-10">
+              Live’s new MPE-capable synthesizer is designed for sound variety,
+              playfulness and character. Equipped with twin oscillators and an
+              extensive modulation matrix, Meld excels at textural soundscapes,
+              harmonic and atonal sounds, and rhythmic drones.
+            </p>
+            <div className="overflow-x-scroll no-scrollbar">
+              <div className="w-[90vw] object-cover">
+                <img
+                  src="https://ableton-production.imgix.net/devices/screenshots/meld-sub-city.png?fm=png"
+                  className=" "
+                  alt="liveImage"
+                />
+              </div>
+            </div>
+            <p className="pt-2 pb-8 text-sm">
+              Program Meld’s dual oscillators with dedicated LFOs and an
+              extensive modulation matrix
+            </p>
+            <div className="overflow-x-scroll no-scrollbar">
+              <div className="w-[90vw] object-cover">
+                <img
+                  src="https://ableton-production.imgix.net/devices/screenshots/meld-carbon-strings.png?fm=png"
+                  className=" "
+                  alt="liveImage"
+                />
+              </div>
+              <p className="pt-2 pb-8 text-sm">
+                Each of Meld’s oscillator presets comes with two Engines
+                parameters, carefully chosen for maximum sound design
+                versatility
+              </p>
+            </div>
+            <MusicPlayer />
           </div>
         </div>
       </div>
