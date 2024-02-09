@@ -3,7 +3,6 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainPage from "./mainSection/MainPage";
 import LiveSection from "./mainSection/LiveSection";
 import Navbar from "./Navbar";
-import VideoPlayer from "./mainSection/VideoPlayer";
 
 const Body = () => {
   return <RouterProvider router={appRouter} />;

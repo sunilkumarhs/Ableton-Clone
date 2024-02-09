@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { part1, part2, part3 } from "../../utils/LiveConstants";
 import VideoPlayer from "./VideoPlayer";
 import MusicPlayer from "./MusicPlayer";
+import Footer from "../Footer";
 
 const LiveSection = () => {
   const [toggle, setToggle] = useState(false);
@@ -10,7 +11,7 @@ const LiveSection = () => {
 
   return (
     <>
-      <div className="overflow-hidden font-[futura-pt]">
+      <div className="overflow-hidden">
         <div className="absolute overflow-x-hidden z-10 w-full">
           <div className="bg-white w-full">
             <hr className="border-[1.5px]" />
@@ -329,7 +330,7 @@ const LiveSection = () => {
             </div>
           </div>
           <div>
-            <h1 className="lg:text-6xl text-4xl px-20 py-20">
+            <h1 className="lg:text-6xl text-3xl xl:px-24 lg:px-20 md:px-16 px-10 lg:py-20 md:py-16 py-10 font-semibold">
               Surprise yourself with the sounds you create
             </h1>
             <div className="w-full lg:px-20">
@@ -339,9 +340,11 @@ const LiveSection = () => {
               />
             </div>
           </div>
-          <div className="px-20 py-24">
-            <h1 className="text-4xl">Lose yourself in Meld</h1>
-            <p className="w-1/2 pt-4 pb-10">
+          <div className="xl:px-24 lg:px-20 md:px-16 px-10 lg:py-20 md:py-16 py-10">
+            <h1 className="md:text-4xl text-3xl font-semibold">
+              Lose yourself in Meld
+            </h1>
+            <p className="lg:w-1/2 w-full pt-4 pb-10">
               Live’s new MPE-capable synthesizer is designed for sound variety,
               playfulness and character. Equipped with twin oscillators and an
               extensive modulation matrix, Meld excels at textural soundscapes,
@@ -375,7 +378,35 @@ const LiveSection = () => {
               </p>
             </div>
             <MusicPlayer />
+            <p className="text-sm py-1">Listen to more sounds from Ableton</p>
+            <div className="lg:py-20 md:py-16 py-10">
+              <h1 className="md:text-4xl text-3xl font-semibold">
+                Add color with Roar
+              </h1>
+              <div className="lg:w-1/2 w-full lg:py-5 py-3">
+                <p>
+                  Bathe your sound in subtle warmth – or break it down with wild
+                  distortion. Live’s new coloring and saturation device is made
+                  up of three saturation stages for serial, parallel or even
+                  mid/side and multiband configurations, and its built-in
+                  compressor and feedback routing give you even more ways to
+                  shape your sound.
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+        <div className="bg-orange-500 w-full py-10 font-semibold text-center">
+          <p className="text-4xl">
+            Save 20% on Live 11 now and upgrade to Live 12 for free
+          </p>
+          <p className="text-2xl py-3">
+            <u>visit the shop</u>
+            {">"}
+          </p>
+        </div>
+        <div className="xl:px-24 lg:px-20 md:px-16 px-8 lg:pt-10 md:pt-7 pt-5 lg:pb-10 md:pb-7 pb-5">
+          <Footer />
         </div>
       </div>
       {toggle && (

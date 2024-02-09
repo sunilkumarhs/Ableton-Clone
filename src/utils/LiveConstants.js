@@ -1,3 +1,5 @@
+// import { music1, music2, music3 } from "../../music";
+import { music1, music2, music3 } from "../music";
 export const part1 = [
   {
     name: "Live 12",
@@ -49,5 +51,22 @@ export const part3 = [
     title: "Generate inspiration",
     content:
       "Conjure up melodies, chords and rhythms with the help of new MIDI Generators. Set constraints and let your chosen Generator create playful and original ideas for you to develop and turn into your own.",
+  },
+];
+export const musicList = [
+  {
+    name: "Music1",
+    music: music1,
+    popularity: "43.2 K",
+  },
+  {
+    name: "Music2",
+    music: music2,
+    popularity: "81.2 K",
+  },
+  {
+    name: "Music3",
+    music: music3,
+    popularity: "32.2 K",
   },
 ];
