@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   part1,
   part2,
@@ -10,44 +10,93 @@ import {
 import Footer from "../Footer";
 
 const MainPage = () => {
-  const color = { fill: "rgba(37,99,235,1)" };
+  const [scroll, setScroll] = useState(false);
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    scrollPosition > 230 ? setScroll(true) : setScroll(false);
+  };
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="overflow-hidden no-scrollbar">
-      <div className=" h-screen w-screen">
-        <div className="absolute bg-orange-500 px-3 w-full md:mt-[10%] py-3 font-semibold md:w-52 text-center md:right-0">
-          <p className="">Save 20% on Line 11 and get Live 12 for free {">"}</p>
+      <div className="flex md:flex-row flex-col justify-between">
+        <div className="md:w-7/12 w-full relative">
+          <div className="absolute md:px-14 px-10 mt-[6%]">
+            <p className="xl:py-3 md:py-2 py-1 xl:text-5xl text-xl font-semibold text-black">
+              Save 20% on Line 11 now,
+            </p>
+            <p className="xl:text-5xl text-xl font-semibold text-black">
+              upgrade to Live 12 for free
+            </p>
+            <div className="md:py-3 py-2">
+              <u className="text-xl text-black font-semibold">shop now {">"}</u>
+            </div>
+          </div>
+          <img
+            src="https://ableton-production.imgix.net/uploads/homepage-teasers/Sell_out_Campaign_P2_Main_tile_T4uMHqn.jpg?fit=crop&auto=format&fm=jpg"
+            alt="mainImage"
+          />
         </div>
-        <div className="absolute px-12 md:pl-28 md:pr-56 md:pt-[10%] pt-[20%]">
-          <p className="lg:text-[5rem] text-[3.5rem] font-semibold text-white ">
+        <div className="md:w-[33%] md:pt-0 pt-[9%] flex md:flex-col flex-row w-full">
+          <div className="md:w-full md:h-[67%] w-[9%]"></div>
+          <div className="md:w-full w-[91%]">
+            <div className="absolute px-[8%] py-[8%]">
+              <p className="md:text-lg text-xl font-semibold text-teal-300 ">
+                Focus and feel
+              </p>
+              <u className="text-sm text-teal-300 font-semibold">
+                Meet the new push{">"}
+              </u>
+            </div>
+            <img
+              className="h-full w-full"
+              src="https://ableton-production.imgix.net/uploads/homepage-teasers/Push-opt1_BWYb0Z6.jpg?"
+              alt="homepageimage"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="md:w-[33%] w-11/12 relative md:left-[42%] -mt-11">
+        <div className="absolute px-[8%] py-[8%]">
+          <p className="md:text-lg text-xl  font-semibold text-white ">
             Always more to explore
           </p>
-          <u className="lg:text-2xl text-base text-white font-semibold">
+          <u className="text-sm text-white font-semibold">
             See what's coming in Live 12 {">"}
           </u>
         </div>
-        <div className="absolute md:block hidden left-0 bottom-0">
-          <a href="#main1">
-            <button className="bg-white cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                style={color}
-                width="60"
-                height="60"
-                viewBox="0 0 24 24"
-              >
-                <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
-              </svg>
-            </button>
-          </a>
-        </div>
         <img
-          className="h-full w-full object-cover"
-          src="https://ableton-production.imgix.net/tours/live/live-12/homepage-takeover-background.jpg?fit=crop&auto=format&fm=jpg"
+          className="h-full w-full"
+          src="https://ableton-production.imgix.net/uploads/homepage-teasers/HP-Tile.jpg?fit=crop&auto=format&fm=jpg"
           alt="homepageimage"
         />
       </div>
       <div
-        className="bg-white relative lg:z-10 lg:-mt-12 xl:px-24 lg:px-20 md:px-16 px-10 lg:pt-20 md:pt-14 pt-10 lg:pb-10 md:pb-7 pb-5"
+        className={`fixed hidden left-[30%] bottom-0 ${
+          scroll ? "md:hidden" : "md:block"
+        }`}
+      >
+        <a href="#main1">
+          <button className="bg-blue-700 cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="fill-white"
+              width="60"
+              height="60"
+              viewBox="0 0 24 24"
+            >
+              <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
+            </svg>
+          </button>
+        </a>
+      </div>
+      <div
+        className="bg-white xl:px-24 lg:px-20 md:px-16 px-10 pt-20 lg:pb-10 md:pb-7 pb-5"
         id="main1"
       >
         <div>

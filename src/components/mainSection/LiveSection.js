@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { part1, part2, part3 } from "../../utils/LiveConstants";
 import VideoPlayer from "./VideoPlayer";
 import MusicPlayer from "./MusicPlayer";
@@ -7,6 +7,15 @@ import Footer from "../Footer";
 const LiveSection = () => {
   const [toggle, setToggle] = useState(false);
   const [videoKey, setVideoKey] = useState();
+  const [play1, setPlay1] = useState(false);
+  const [play2, setPlay2] = useState(false);
+  const [play3, setPlay3] = useState(false);
+  const [play4, setPlay4] = useState(false);
+  const [playSection1, setPlaySection1] = useState(false);
+  const play1Ref = useRef(null);
+  const play2Ref = useRef(null);
+  const play3Ref = useRef(null);
+  const play4Ref = useRef(null);
   const color = { fill: "rgba(255,255,255,1)" };
 
   return (
@@ -34,31 +43,31 @@ const LiveSection = () => {
           <div className="bg-orange-500 px-6 w-full md:mt-[5%] py-3 xl:py-5 font-semibold md:w-56 xl:w-64 xl:text-lg  text-center md:float-right">
             <p>Save 20% on Line 11 and get Live 12 for free {">"}</p>
           </div>
-          <div className="md:text-6xl text-3xl font-semibold xl:px-24 lg:px-20 md:px-16 px-10 text-white mt-[10%]">
+          <div className="md:text-6xl text-3xl font-semibold xl:px-24 lg:px-20 md:px-16 px-10 text-white lg:mt-[10%] mt-[20%]">
             <div className="flex">
               <h1 className="pr-5">Find</h1>
-              <div className="flex flex-col overflow-y-scroll h-20 no-scrollbar">
+              <div className="flex flex-col overflow-y-scroll md:h-20 h-12 no-scrollbar">
                 <div className="flex">
                   <div>
                     <h1> your</h1>
                   </div>
-                  <div className=" flex flex-col px-4 text-center overflow-y-scroll h-20 no-scrollbar">
-                    <span className="text-black bg-white rounded-full py-2 px-4 m-1">
-                      thing
-                    </span>{" "}
-                    <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                  <div className=" flex flex-col px-4 text-center overflow-y-scroll md:h-20 h-12 no-scrollbar">
+                    <div className="m-1 text-black bg-white rounded-full text-center md:pb-4 pb-2">
+                      <p>thing</p>
+                    </div>{" "}
+                    <span className="text-black bg-white rounded-full text-center md:pb-4 pb-2 m-1">
                       way
                     </span>
-                    <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                    <span className="m-1 text-black bg-white rounded-full text-center md:pb-4 pb-2 px-4">
                       rhythm
                     </span>
-                    <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                    <span className="m-1 text-black bg-white rounded-full text-center md:pb-4 pb-2">
                       spark
                     </span>
                   </div>
                 </div>
-                <div className="pt-6">
-                  <span className="text-black bg-white rounded-full py-2 px-4 m-1">
+                <div className="md:mt-6 mt-2">
+                  <span className="text-black bg-white rounded-full pb-3 px-4">
                     yourself
                   </span>
                 </div>
@@ -379,7 +388,7 @@ const LiveSection = () => {
             </div>
             <MusicPlayer />
             <p className="text-sm py-1">Listen to more sounds from Ableton</p>
-            <div className="lg:py-20 md:py-16 py-10">
+            <div className="lg:pt-20 md:pt-16 pt-10">
               <h1 className="md:text-4xl text-3xl font-semibold">
                 Add color with Roar
               </h1>
@@ -393,14 +402,254 @@ const LiveSection = () => {
                   shape your sound.
                 </p>
               </div>
+              <div className="py-2">
+                <div>
+                  <div
+                    className="py-2 cursor-pointer"
+                    onClick={() => {
+                      setPlay1(!play1);
+                      play2 === true && play2Ref.current.pause();
+                      setPlay2(false);
+                      play3 === true && play3Ref.current.pause();
+                      setPlay3(false);
+                      play4 === true && play4Ref.current.pause();
+                      setPlay4(false);
+                      play1
+                        ? play1Ref.current.pause()
+                        : play1Ref.current.play();
+                    }}
+                  >
+                    {play1 ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="fill-white bg-blue-700"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 7h3v10H8zm5 0h3v10h-3z"></path>
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="fill-white bg-blue-700"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M7 6v12l10-6z"></path>
+                      </svg>
+                    )}
+                    <audio
+                      ref={play1Ref}
+                      src="https://cdn-resources.ableton.com/resources/sounds/devices/bassline.mp4"
+                      controls
+                      onEnded={() => setPlay1(!play1)}
+                      className="hidden"
+                    />
+                  </div>
+                  <div className="w-2/3">
+                    <img
+                      src="https://ableton-production.imgix.net/devices/screenshots/roar-bassline%402x.png?fm=png"
+                      alt="listenimage"
+                    />
+                    <p className="text-xs font-semibold py-1">
+                      Apply heavy distortion to a specific frequency range with
+                      Roar’s multiband configuration
+                    </p>
+                  </div>
+                </div>
+                <div className="py-8">
+                  <div
+                    className="py-2 cursor-pointer"
+                    onClick={() => {
+                      setPlay2(!play2);
+                      play1 === true && play1Ref.current.pause();
+                      setPlay1(false);
+                      play3 === true && play3Ref.current.pause();
+                      setPlay3(false);
+                      play4 === true && play4Ref.current.pause();
+                      setPlay4(false);
+                      play2
+                        ? play2Ref.current.pause()
+                        : play2Ref.current.play();
+                    }}
+                  >
+                    {play2 ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="fill-white bg-blue-700"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 7h3v10H8zm5 0h3v10h-3z"></path>
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="fill-white bg-blue-700"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M7 6v12l10-6z"></path>
+                      </svg>
+                    )}
+                    <audio
+                      ref={play2Ref}
+                      src="https://cdn-resources.ableton.com/resources/sounds/devices/guitar.mp4"
+                      controls
+                      onEnded={() => setPlay2(!play2)}
+                      className="hidden"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <img
+                      src="https://ableton-production.imgix.net/devices/screenshots/roar-guitar%402x.png?fm=png"
+                      alt="listenimage"
+                    />
+                    <p className="text-xs font-semibold py-1">
+                      Modulate your sound with Roar’s Envelope Follower
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="border-2 border-blue-700 w-full flex justify-center cursor-pointer"
+                  onClick={() => setPlaySection1(!playSection1)}
+                >
+                  <p className="text-5xl text-blue-600">
+                    {playSection1 ? "-" : "+"}
+                  </p>
+                  <p className="text-blue-600 font-semibold py-4 text-lg">
+                    {playSection1
+                      ? "Show fewer Roar sounds"
+                      : "Discover more Roar sounds"}
+                  </p>
+                </div>
+                <div className={`pt-8 ${playSection1 ? "block" : "hidden"}`}>
+                  <div>
+                    <div
+                      className="py-2 cursor-pointer"
+                      onClick={() => {
+                        setPlay3(!play3);
+                        play1 === true && play1Ref.current.pause();
+                        setPlay1(false);
+                        play2 === true && play2Ref.current.pause();
+                        setPlay2(false);
+                        play4 === true && play4Ref.current.pause();
+                        setPlay4(false);
+                        play3
+                          ? play3Ref.current.pause()
+                          : play3Ref.current.play();
+                      }}
+                    >
+                      {play3 ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="fill-white bg-blue-700"
+                          width="40"
+                          height="40"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 7h3v10H8zm5 0h3v10h-3z"></path>
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="fill-white bg-blue-700"
+                          width="40"
+                          height="40"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M7 6v12l10-6z"></path>
+                        </svg>
+                      )}
+                      <audio
+                        ref={play3Ref}
+                        src="https://cdn-resources.ableton.com/resources/sounds/devices/beat.mp4"
+                        controls
+                        onEnded={() => setPlay1(!play3)}
+                        className="hidden"
+                      />
+                    </div>
+                    <div className="w-full">
+                      <img
+                        src="https://ableton-production.imgix.net/devices/screenshots/roar-beat%402x.png?fm=png"
+                        alt="listenimage"
+                      />
+                      <p className="text-xs font-semibold py-1">
+                        Process a beat in Serial mode to add two separate layers
+                        of saturation, one after the other
+                      </p>
+                    </div>
+                  </div>
+                  <div className="pt-8">
+                    <div
+                      className="py-2 cursor-pointer"
+                      onClick={() => {
+                        setPlay4(!play4);
+                        play1 === true && play1Ref.current.pause();
+                        setPlay1(false);
+                        play2 === true && play2Ref.current.pause();
+                        setPlay2(false);
+                        play3 === true && play3Ref.current.pause();
+                        setPlay3(false);
+                        play4
+                          ? play4Ref.current.pause()
+                          : play4Ref.current.play();
+                      }}
+                    >
+                      {play4 ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="fill-white bg-blue-700"
+                          width="40"
+                          height="40"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 7h3v10H8zm5 0h3v10h-3z"></path>
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="fill-white bg-blue-700"
+                          width="40"
+                          height="40"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M7 6v12l10-6z"></path>
+                        </svg>
+                      )}
+                      <audio
+                        ref={play4Ref}
+                        src="https://cdn-resources.ableton.com/resources/sounds/devices/synth.mp4"
+                        controls
+                        onEnded={() => setPlay4(!play4)}
+                        className="hidden"
+                      />
+                    </div>
+                    <div className="w-full">
+                      <img
+                        src="https://ableton-production.imgix.net/devices/screenshots/roar-synth%402x.png?fm=png"
+                        alt="listenimage"
+                      />
+                      <p className="text-xs font-semibold py-1">
+                        See what happens when you use Roar’s Feedback panel to
+                        distort your signal further
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="bg-orange-500 w-full py-10 font-semibold text-center">
-          <p className="text-4xl">
+        <div className="bg-orange-500 w-full lg:py-10 md:py-6 py-4 font-semibold text-center">
+          <p className="md:text-4xl text-2xl px-2">
             Save 20% on Live 11 now and upgrade to Live 12 for free
           </p>
-          <p className="text-2xl py-3">
+          <p className="md:text-2xl text-xl lg:py-3 py-2 cursor-pointer">
             <u>visit the shop</u>
             {">"}
           </p>

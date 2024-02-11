@@ -10,13 +10,13 @@ export const part1 = [
 
 export const part2 = [
   {
-    link: "https://cdn-resources.ableton.com/resources/uploads/zinnia/thumb_ABL_Loop_Blog-_Hainbach_w_DL__16.012.png.600x340_q85_crop_upscale.jpg",
+    link: "https://cdn-resources.ableton.com/resources/uploads/zinnia/thumb_52340500443_84c2fc35b4_o_800x400px.jpg.600x340_q85_crop_upscale.jpg",
     name: "Downloads",
     color: "bg-red-400",
     content: "Ah! Kosmos & Hainbach: Blasting The Sirens",
   },
   {
-    link: "https://cdn-resources.ableton.com/resources/uploads/zinnia/thumb_438_Deena_Abdelwahe.jpg.600x340_q85_crop_upscale.jpg",
+    link: "https://cdn-resources.ableton.com/resources/uploads/zinnia/thumb_meld-1_DSC1794_CROP_800x400px.jpg.600x340_q85_crop_upscale.jpg",
     name: "Artists",
     color: "bg-yellow-400",
     content: "Deena Abdelwahed: Confounding Expections",
