@@ -24,6 +24,16 @@ const VideoPlayer = ({ display, videoKey }) => {
           </button>
           <div className="w-full h-full">
             <iframe
+              className="w-full  h-full"
+              src={
+                "https://www.youtube.com/embed/" +
+                videoKey +
+                "?&showinfo=0&modestbranding=1&autohide=1&autoplay=1&mute=1&rel=0&controls=0"
+              }
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            ></iframe>
+            {/* <iframe
               className="w-full h-full"
               src={
                 "https://www.youtube-nocookie.com/embed/" +
@@ -32,7 +42,7 @@ const VideoPlayer = ({ display, videoKey }) => {
               }
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            ></iframe>
+            ></iframe> */}
           </div>
         </div>
       </div>
