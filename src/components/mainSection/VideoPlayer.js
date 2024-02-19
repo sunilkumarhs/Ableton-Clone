@@ -26,7 +26,7 @@ const VideoPlayer = ({ display, videoKey }) => {
             <iframe
               className="w-full  h-full"
               src={
-                "https://www.youtube.com/embed/" +
+                "https://www.youtube-nocookie.com/embed/" +
                 videoKey +
                 "?&showinfo=0&modestbranding=1&autohide=1&autoplay=1&mute=1&rel=0&controls=0"
               }
@@ -38,7 +38,7 @@ const VideoPlayer = ({ display, videoKey }) => {
               src={
                 "https://www.youtube-nocookie.com/embed/" +
                 videoKey +
-                "?si=aeG8jpdFpt0grLMT"
+                "?&autoplay=1&si=aeG8jpdFpt0grLMT"
               }
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
